@@ -1,0 +1,16 @@
+{
+  "name": "sketch",
+  "description": "Sketch canvas drawing component",
+  "version": "0.0.1",
+  "keywords": ["canvas", "pen", "drawing", "sketch"],
+  "dependencies": {
+    "component/classes": "*"
+  },
+  "component": {
+    "scripts": {
+      "sketch/index.js": "index.js",
+      "sketch/path.js": "path.js"
+    },
+    "styles": ["sketch.css"]
+  }
+}
