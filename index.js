@@ -98,6 +98,7 @@ Sketch.prototype.bind = function(){
  */
 
 Sketch.prototype.onmousedown = function(e){
+  e.preventDefault();
   this.down = e;
   var x = e.offsetX;
   var y = e.offsetY;
