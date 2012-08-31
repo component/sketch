@@ -33,6 +33,10 @@ sketch(canvas);
 
   Set pen opacity.
 
+### Sketch#clear()
+
+  Clear the paths and re-draw.
+
 ## License
 
   MIT

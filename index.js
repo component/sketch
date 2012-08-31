@@ -37,6 +37,17 @@ function Sketch(canvas) {
 }
 
 /**
+ * Clear the paths and re-draw.
+ *
+ * @api public
+ */
+
+Sketch.prototype.clear = function(){
+  this.paths = [];
+  this.draw();
+};
+
+/**
  * Set pen `size`.
  *
  * @param {Number} size
