@@ -37,6 +37,18 @@ function Sketch(canvas) {
 }
 
 /**
+ * Reset the sketch defaults and clear the canvas.
+ *
+ * @api public
+ */
+
+Sketch.prototype.reset = function(){
+  this.clear();
+  this.size(1.5);
+  this.color('black');
+};
+
+/**
  * Clear the paths and re-draw.
  *
  * @api public

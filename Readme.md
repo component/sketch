@@ -37,6 +37,10 @@ sketch(canvas);
 
   Clear the paths and re-draw.
 
+### Sketch#reset()
+
+  Reset the sketch defaults and clear the canvas.
+
 ## License
 
   MIT
