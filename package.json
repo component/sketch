@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "keywords": ["canvas", "pen", "drawing", "sketch"],
   "dependencies": {
-    "component/classes": "*"
+    "classes-component": "*"
   },
   "component": {
     "scripts": {
