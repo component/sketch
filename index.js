@@ -145,7 +145,8 @@ Sketch.prototype.onmouseup = function(e){
 
 Sketch.prototype.draw = function(){
   var ctx = this.ctx;
-  ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  ctx.fillStyle = 'white';
+  ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
   for (var i = 0; i < this.paths.length; ++i) {
     this.paths[i].draw(this.ctx);
   }
