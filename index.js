@@ -33,6 +33,7 @@ function Sketch(canvas) {
   this.size(1.5);
   this.color('black');
   classes(canvas).add('sketch');
+  this.draw();
 }
 
 /**
