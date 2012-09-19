@@ -21,6 +21,10 @@ var sketch = require('sketch');
 sketch(canvas);
 ```
 
+### Sketch#add(object)
+
+  Add drawable `object` that _must_ provide a `.draw(ctx)` method.
+
 ### Sketch#size(n)
 
   Set pen size.
@@ -35,7 +39,7 @@ sketch(canvas);
 
 ### Sketch#clear()
 
-  Clear the paths and re-draw.
+  Clear the objects and re-draw.
 
 ### Sketch#reset()
 
