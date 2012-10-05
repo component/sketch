@@ -4,7 +4,9 @@
 <canvas width=800 height=600 style='border: 1px solid #eee'></canvas>
 <script src="../build/build.js"></script>
 <script>
+  var autoscale = require('component-autoscale-canvas');
   var canvas = document.querySelector('canvas');
   var sketch = require('sketch');
   sketch(canvas);
+  autoscale(canvas);
 </script>

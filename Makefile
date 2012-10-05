@@ -1,9 +1,9 @@
 
 build: index.js sketch.css components
-	@component build
+	@component build --dev
 
 components:
-	@component install
+	@component install --dev
 
 clean:
 	rm -fr build components
