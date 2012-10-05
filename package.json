@@ -9,6 +9,7 @@
   "component": {
     "scripts": {
       "sketch/index.js": "index.js",
+      "sketch/point.js": "point.js",
       "sketch/path.js": "path.js"
     },
     "styles": ["sketch.css"]

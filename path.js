@@ -1,5 +1,11 @@
 
 /**
+ * Module dependencies.
+ */
+
+var Point = require('./point');
+
+/**
  * Expose `Path`.
  */
 
@@ -31,7 +37,7 @@ Path.prototype.opacity = 1;
  */
 
 Path.prototype.addPoint = function(x, y){
-  this.points.push({ x: x, y: y });
+  this.points.push(new Point(x, y));
 };
 
 /**
