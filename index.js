@@ -29,12 +29,26 @@ function Sketch(canvas) {
   this.canvas = canvas;
   this.ctx = canvas.getContext('2d');
   this.bind();
-  this.paths = [];
+  this.objs = [];
   this.size(1.5);
   this.color('black');
   classes(canvas).add('sketch');
   this.draw();
 }
+
+/**
+ * Add drawable `obj`, which must
+ * provide a `.draw(ctx)` method.
+ *
+ * @param {Object} obj
+ * @return {Sketch}
+ * @api public
+ */
+
+Sketch.prototype.add = function(obj){
+  this.objs.push(obj);
+  return this;
+};
 
 /**
  * Reset the sketch defaults and clear the canvas.
@@ -49,13 +63,13 @@ Sketch.prototype.reset = function(){
 };
 
 /**
- * Clear the paths and re-draw.
+ * Clear the objects and re-draw.
  *
  * @api public
  */
 
 Sketch.prototype.clear = function(){
-  this.paths = [];
+  this.objs = [];
   this.draw();
 };
 
@@ -131,7 +145,7 @@ Sketch.prototype.onmousedown = function(e){
   path.size = this._size;
   path.addPoint(x, y);
   path.addPoint(x + .1, y + .1);
-  this.paths.push(path);
+  this.objs.push(path);
   this.draw();
 };
 
@@ -172,8 +186,8 @@ Sketch.prototype.draw = function(){
   var ctx = this.ctx;
   ctx.fillStyle = 'white';
   ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-  for (var i = 0; i < this.paths.length; ++i) {
-    this.paths[i].draw(this.ctx);
+  for (var i = 0; i < this.objs.length; ++i) {
+    this.objs[i].draw(this.ctx);
   }
 };
 
