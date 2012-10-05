@@ -6,6 +6,9 @@
   "dependencies": {
     "component/classes": "*"
   },
+  "development": {
+    "component/autoscale-canvas": "*"
+  },
   "scripts": [
     "index.js",
     "path.js"
