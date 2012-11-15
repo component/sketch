@@ -1,12 +1,21 @@
-
-<style>body { background: #eee }</style>
-<link rel="stylesheet" href="../build/build.css" />
-<canvas width=400 height=400 style='border: 1px solid #eee; background: white'></canvas>
-<script src="../build/build.js"></script>
-<script>
-  var autoscale = require('component-autoscale-canvas');
-  var canvas = document.querySelector('canvas');
-  var sketch = require('sketch');
-  sketch(canvas);
-  autoscale(canvas);
-</script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Sketch</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">
+  </head>
+  <body>
+    <style>body { background: #eee }</style>
+    <link rel="stylesheet" href="../build/build.css" />
+    <canvas width=400 height=400 style='border: 1px solid #eee; background: white'></canvas>
+    <script src="../build/build.js"></script>
+    <script>
+      var autoscale = require('component-autoscale-canvas');
+      var canvas = document.querySelector('canvas');
+      var sketch = require('sketch');
+      sketch(canvas);
+      autoscale(canvas);
+    </script>
+  </body>
+</html>
