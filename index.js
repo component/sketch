@@ -27,6 +27,7 @@ module.exports = function(canvas){
 
 function Sketch(canvas) {
   this.canvas = canvas;
+  this.bounds = canvas.getBoundingClientRect();
   this.ctx = canvas.getContext('2d');
   this.bind();
   this.objs = [];
@@ -122,6 +123,9 @@ Sketch.prototype.bind = function(){
   this.canvas.addEventListener('mousedown', this.onmousedown.bind(this), false);
   this.canvas.addEventListener('mousemove', this.onmousemove.bind(this), false);
   this.canvas.addEventListener('mouseup', this.onmouseup.bind(this), false);
+  this.canvas.addEventListener('touchstart', this.onmousedown.bind(this), false);
+  this.canvas.addEventListener('touchmove', this.onmousemove.bind(this), false);
+  this.canvas.addEventListener('touchend', this.onmouseup.bind(this), false);
 };
 
 /**
@@ -136,9 +140,10 @@ Sketch.prototype.bind = function(){
 
 Sketch.prototype.onmousedown = function(e){
   e.preventDefault();
+  if (e.targetTouches) e = e.targetTouches[0];
   this.down = e;
-  var x = e.offsetX;
-  var y = e.offsetY;
+  var x = e.pageX - this.bounds.left;
+  var y = e.pageY - this.bounds.top;
   var path = this.path = new Path;
   path.opacity = 0.8;
   path.color = this._color;
@@ -160,7 +165,11 @@ Sketch.prototype.onmousedown = function(e){
 
 Sketch.prototype.onmousemove = function(e){
   if (!this.down) return;
-  this.path.addPoint(e.offsetX, e.offsetY);
+  e.preventDefault();
+  if (e.targetTouches) e = e.targetTouches[0];
+  var x = e.pageX - this.bounds.left;
+  var y = e.pageY - this.bounds.top;
+  this.path.addPoint(x, y);
   this.draw();
 };
 
@@ -190,4 +199,3 @@ Sketch.prototype.draw = function(){
     this.objs[i].draw(this.ctx);
   }
 };
-
