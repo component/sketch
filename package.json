@@ -1,7 +1,7 @@
 {
   "name": "sketch",
   "description": "Sketch canvas drawing component",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "keywords": ["canvas", "pen", "drawing", "sketch"],
   "dependencies": {
     "classes-component": "*"
