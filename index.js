@@ -27,7 +27,7 @@ module.exports = function(canvas){
 
 function Sketch(canvas) {
   this.canvas = canvas;
-  this.bounds = canvas.getBoundingClientRect();
+  this.bounds = null;
   this.ctx = canvas.getContext('2d');
   this.bind();
   this.objs = [];
@@ -139,6 +139,7 @@ Sketch.prototype.bind = function(){
  */
 
 Sketch.prototype.onmousedown = function(e){
+  this.bounds = this.bounds || this.canvas.getBoundingClientRect();
   e.preventDefault();
   if (e.targetTouches) e = e.targetTouches[0];
   this.down = e;
