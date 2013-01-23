@@ -32,6 +32,7 @@ function Sketch(canvas) {
   this.bind();
   this.objs = [];
   this.size(1.5);
+  this.background('white');
   this.color('black');
   classes(canvas).add('sketch');
   this.draw();
@@ -97,6 +98,19 @@ Sketch.prototype.size = function(size){
 
 Sketch.prototype.color = function(color){
   this._color = color;
+  return this;
+};
+
+/**
+ * Set background `color`.
+ *
+ * @param {String} color
+ * @return {Sketch}
+ * @api public
+ */
+
+Sketch.prototype.background = function(color){
+  this._background = color;
   return this;
 };
 
@@ -194,7 +208,7 @@ Sketch.prototype.onmouseup = function(e){
 
 Sketch.prototype.draw = function(){
   var ctx = this.ctx;
-  ctx.fillStyle = 'white';
+  ctx.fillStyle = this._background;
   ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
   for (var i = 0; i < this.objs.length; ++i) {
     this.objs[i].draw(this.ctx);
