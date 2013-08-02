@@ -23,9 +23,5 @@
   ],
   "styles": [
     "sketch.css"
-  ],
-  "remotes": [
-    "https://raw.github.com",
-    "https://raw.github.com"
   ]
 }
