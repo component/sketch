@@ -2,9 +2,16 @@
   "name": "sketch",
   "description": "Sketch canvas drawing component",
   "version": "0.1.2",
-  "keywords": ["canvas", "pen", "drawing", "sketch"],
+  "keywords": [
+    "canvas",
+    "pen",
+    "drawing",
+    "sketch"
+  ],
   "dependencies": {
-    "component/classes": "*"
+    "component/classes": "*",
+    "component/raf": "*",
+    "component/events": "*"
   },
   "development": {
     "component/autoscale-canvas": "*"
@@ -16,5 +23,9 @@
   ],
   "styles": [
     "sketch.css"
+  ],
+  "remotes": [
+    "https://raw.github.com",
+    "https://raw.github.com"
   ]
 }

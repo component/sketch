@@ -4,7 +4,9 @@
   "version": "0.1.2",
   "keywords": ["canvas", "pen", "drawing", "sketch"],
   "dependencies": {
-    "classes-component": "*"
+    "classes-component": "*",
+    "raf-component": "1.1.1",
+    "events-component-2": "1.0.4"
   },
   "component": {
     "scripts": {

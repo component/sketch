@@ -3,8 +3,10 @@
  * Module dependencies.
  */
 
-var Path = require('./path')
-  , classes = require('classes');
+var classes = require('classes');
+var events = require('events');
+var Path = require('./path');
+var raf = require('raf');
 
 /**
  * Create a new `Sketch` for the given `canvas`.
@@ -130,16 +132,40 @@ Sketch.prototype.opacity = function(opacity){
 /**
  * Bind event handlers.
  *
- * @api private
+ * @api public
  */
 
 Sketch.prototype.bind = function(){
-  this.canvas.addEventListener('mousedown', this.onmousedown.bind(this), false);
-  this.canvas.addEventListener('mousemove', this.onmousemove.bind(this), false);
-  this.canvas.addEventListener('mouseup', this.onmouseup.bind(this), false);
-  this.canvas.addEventListener('touchstart', this.onmousedown.bind(this), false);
-  this.canvas.addEventListener('touchmove', this.onmousemove.bind(this), false);
-  this.canvas.addEventListener('touchend', this.onmouseup.bind(this), false);
+  this.events = events(this.canvas, this);
+  this.events.bind('mousedown');
+  this.events.bind('mousemove');
+  this.events.bind('mouseup');
+  this.events.bind('touchstart', 'onmousedown');
+  this.events.bind('touchmove', 'onmousemove');
+  this.events.bind('touchend', 'onmouseup');
+};
+
+/**
+ * Unbind event handlers.
+ *
+ * @api public
+ */
+
+Sketch.prototype.unbind = function(){
+  this.events.unbind();
+};
+
+/**
+ * Animate via RAF.
+ *
+ * @api private
+ */
+
+Sketch.prototype.animate = function(){
+  var self = this;
+  if (!this.down) return;
+  raf(function(){ self.animate() });
+  this.draw();
 };
 
 /**
@@ -166,7 +192,7 @@ Sketch.prototype.onmousedown = function(e){
   path.addPoint(x, y);
   path.addPoint(x + .1, y + .1);
   this.objs.push(path);
-  this.draw();
+  this.animate();
 };
 
 /**
@@ -185,7 +211,6 @@ Sketch.prototype.onmousemove = function(e){
   var x = e.pageX - this.bounds.left;
   var y = e.pageY - this.bounds.top;
   this.path.addPoint(x, y);
-  this.draw();
 };
 
 /**
@@ -198,6 +223,7 @@ Sketch.prototype.onmousemove = function(e){
 
 Sketch.prototype.onmouseup = function(e){
   this.down = null;
+  this.draw();
 };
 
 /**
