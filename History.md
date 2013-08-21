@@ -1,4 +1,10 @@
 
+0.2.0 / 2013-08-20 
+==================
+
+ * add requestAnimationFrame support
+ * remove .remotes from component.json
+
 0.1.2 / 2013-01-23 
 ==================
 
