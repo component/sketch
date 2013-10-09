@@ -2,7 +2,12 @@
   "name": "sketch",
   "description": "Sketch canvas drawing component",
   "version": "0.2.0",
-  "keywords": ["canvas", "pen", "drawing", "sketch"],
+  "keywords": [
+    "canvas",
+    "pen",
+    "drawing",
+    "sketch"
+  ],
   "dependencies": {
     "classes-component": "*",
     "raf-component": "1.1.1",
@@ -14,6 +19,12 @@
       "sketch/point.js": "point.js",
       "sketch/path.js": "path.js"
     },
-    "styles": ["sketch.css"]
+    "styles": [
+      "sketch.css"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/component/sketch.git"
   }
 }
